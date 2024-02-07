@@ -1,0 +1,45 @@
+﻿@model List<Category>
+
+<title>@ViewData["Title"] - SweetCrazeBakery </title>
+<div class="container">
+	<div class="row pt-4 pb-3">
+		<div class="col-6">
+			<h2 class="text-primary">Category List</h2>
+		</div>
+
+		<div class="col-6 text-end">
+			<a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+				<i class="bi bi-plus-circle"></i>  Create New Category
+			</a>
+		</div>
+	</div>
+</div>
+
+<table class="table table-hover">
+	<thead>
+	<tr class="table-light">
+		<th class="text-secondary">
+			Category Name
+		</th>
+
+			<th class="text-secondary">
+			Category Dispaly Order
+		</th>
+	</tr>
+	</thead>
+	<tbody>
+		@foreach(var cat in Model.OrderBy(c=>c.displayOrder))
+		{
+			<tr class="table-light">
+			<td>
+				@cat.categoryName
+			</td>
+			<td>
+				@cat.displayOrder
+			</td>
+		</tr>
+		}
+
+	</tbody>
+
+</table>
