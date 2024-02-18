@@ -1,25 +1,26 @@
 ﻿@model Category
 
 <form method="post">
+	<input asp-for="categoryID" hidden /> @*  This is a hidden input field that will store the categoryID of the category to be deleted *@
 	<div class="border p-3 mt-4 justify-content-center">
 		<div class="row pb-2">
-			<h2 class=".text-secondary-emphasis">Create category</h2>
-			<hr/>
+			<h2 class=".text-secondary-emphasis">Delete category</h2>
+			<hr />
 		</div>
 		<div class="mb-3 row">
 			<label class="p-0 text-secondary" asp-for="categoryName"></label>
-			<input asp-for="categoryName" class="form-control" />
-			<span asp-validation-for="categoryName" class="text-danger"></span>
+			<input asp-for="categoryName" disabled class="form-control" />
+		
 		</div>
 		<div class="mb-3 row">
 			<label class="p-0 text-secondary" asp-for="displayOrder"></label>
-			<input asp-for="displayOrder" class="form-control" value="" />
-			<span asp-validation-for="displayOrder" class="text-danger"></span>
+			<input asp-for="displayOrder" disabled class="form-control" />
+			
 		</div>
 
 		<div class="row pt-2 justify-content-center">
 			<div class="col-6 col-md-3">
-				<button type="submit" class="btn btn-primary form-control">Create</button>
+				<button type="submit" class="btn btn-primary form-control">Update</button>
 			</div>
 			<div class="col-6 col-md-3">
 				<a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary border  form-control">
@@ -30,8 +31,4 @@
 	</div>
 </form>
 
-
-@section Scripts {
-	<partial name="_ValidationScriptsPartial" />
-}
 
